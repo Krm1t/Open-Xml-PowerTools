@@ -327,23 +327,30 @@ namespace OpenXmlPowerTools
                         PackagePart part = package.GetPart(PackUriHelper.ResolvePartUri(relationship.SourceUri, relationship.TargetUri));
                         switch (part.ContentType)
                         {
-                            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":
-                            case "application/vnd.ms-word.document.macroEnabled.main+xml":
+                            case "application/vnd.ms-word.template.macroEnabled.main+xml":
+                            case "application/vnd.ms-word.template.macroEnabled.12.main+xml":
                             case "application/vnd.ms-word.template.macroEnabledTemplate.main+xml":
+                            case "application/vnd.ms-word.document.macroEnabled.main+xml":
+                            case "application/vnd.ms-word.document.macroEnabled.12.main+xml":
                             case "application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":
-                                return typeof(WordprocessingDocument);
-                            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":
-                            case "application/vnd.ms-excel.sheet.macroEnabled.main+xml":
+                            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":
+                              return typeof(WordprocessingDocument);
                             case "application/vnd.ms-excel.template.macroEnabled.main+xml":
+                            case "application/vnd.ms-excel.template.macroEnabled.12.main+xml":
+                            case "application/vnd.ms-excel.sheet.macroEnabled.main+xml":
+                            case "application/vnd.ms-excel.sheet.macroEnabled.12.main+xml":
                             case "application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":
-                                return typeof(SpreadsheetDocument);
+                            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":
+                              return typeof(SpreadsheetDocument);
+                            case "application/vnd.ms-powerpoint.template.macroEnabled.main+xml":
+                            case "application/vnd.ms-powerpoint.template.macroEnabled.12.main+xml":
+                            case "application/vnd.ms-powerpoint.presentation.macroEnabled.main+xml":
+                            case "application/vnd.ms-powerpoint.presentation.macroEnabled.12.main+xml":
+                            case "application/vnd.ms-powerpoint.addin.macroEnabled.main+xml":
                             case "application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":
                             case "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":
-                            case "application/vnd.ms-powerpoint.template.macroEnabled.main+xml":
-                            case "application/vnd.ms-powerpoint.addin.macroEnabled.main+xml":
                             case "application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":
-                            case "application/vnd.ms-powerpoint.presentation.macroEnabled.main+xml":
-                                return typeof(PresentationDocument);
+                              return typeof(PresentationDocument);
                         }
                         return typeof(Package);
                     }
@@ -685,23 +692,30 @@ namespace OpenXmlPowerTools
             PackagePart part = DocPackage.GetPart(PackUriHelper.ResolvePartUri(relationship.SourceUri, relationship.TargetUri));
             switch (part.ContentType)
             {
-                case "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":
-                case "application/vnd.ms-word.document.macroEnabled.main+xml":
+                case "application/vnd.ms-word.template.macroEnabled.main+xml":
+                case "application/vnd.ms-word.template.macroEnabled.12.main+xml":
                 case "application/vnd.ms-word.template.macroEnabledTemplate.main+xml":
+                case "application/vnd.ms-word.document.macroEnabled.main+xml":
+                case "application/vnd.ms-word.document.macroEnabled.12.main+xml":
                 case "application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":
-                    return typeof(WordprocessingDocument);
-                case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":
-                case "application/vnd.ms-excel.sheet.macroEnabled.main+xml":
+                case "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":
+                  return typeof(WordprocessingDocument);
                 case "application/vnd.ms-excel.template.macroEnabled.main+xml":
+                case "application/vnd.ms-excel.template.macroEnabled.12.main+xml":
+                case "application/vnd.ms-excel.sheet.macroEnabled.main+xml":
+                case "application/vnd.ms-excel.sheet.macroEnabled.12.main+xml":
                 case "application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":
-                    return typeof(SpreadsheetDocument);
+                case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":
+                  return typeof(SpreadsheetDocument);
+                case "application/vnd.ms-powerpoint.template.macroEnabled.main+xml":
+                case "application/vnd.ms-powerpoint.template.macroEnabled.12.main+xml":
+                case "application/vnd.ms-powerpoint.presentation.macroEnabled.main+xml":
+                case "application/vnd.ms-powerpoint.presentation.macroEnabled.12.main+xml":
+                case "application/vnd.ms-powerpoint.addin.macroEnabled.main+xml":
                 case "application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":
                 case "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":
-                case "application/vnd.ms-powerpoint.template.macroEnabled.main+xml":
-                case "application/vnd.ms-powerpoint.addin.macroEnabled.main+xml":
                 case "application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":
-                case "application/vnd.ms-powerpoint.presentation.macroEnabled.main+xml":
-                    return typeof(PresentationDocument);
+                  return typeof(PresentationDocument);
             }
             return null;
         }
